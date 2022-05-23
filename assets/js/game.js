@@ -121,7 +121,7 @@ var endGame = function () {
 
 var shop = function () {
     var shopOptionPrompt = window.prompt(
-        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL' , 'UPGRADE' , or 'LEAVE' to make a choise."
+        "Would you like to REFILL your health, UPGRADE your attack, or LEAVE the store? Please enter one: 'REFILL' , 'UPGRADE' , or 'LEAVE' to make a choice."
     );
     // use switch to carry out action
     switch (shopOptionPrompt) {
@@ -147,8 +147,19 @@ var shop = function () {
     }
 };
 
+var getPlayerName = function () {
+    var name = "";
+
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?");
+    }
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
+
 var playerInfo = {
-    name: window.prompt("What is your robot's name?"),
+    name: getPlayerName(),
     health: 100,
     attack: 10,
     money: 10,
@@ -179,6 +190,12 @@ var playerInfo = {
     }
 };
 
+var randomNumber = function (min, max) {
+    var value = Math.floor(Math.random() * (max - min + 1) + min);
+
+    return value;
+};
+
 var enemyInfo = [
     {
         name: "Roberto",
@@ -195,11 +212,7 @@ var enemyInfo = [
 ];
 
 
-var randomNumber = function (min, max) {
-    var value = Math.floor(Math.random() * (max - min + 1) + min);
 
-    return value;
-};
 startGame();
 
 
